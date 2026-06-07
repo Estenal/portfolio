@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRocket, faStar, faCircleNotch, faCloud } from '@fortawesome/free-solid-svg-icons';
-import { PortfolioInfo } from '../../../models/portfolio';
+import { PortfolioInfo } from '../../../models/Portfolio';
 
 export default function Loader() {
   return (
