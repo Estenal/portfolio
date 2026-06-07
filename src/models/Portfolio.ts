@@ -8,6 +8,7 @@ const PortfolioInfo = {
 
 const LinkResources = {
     github: "https://github.com/Estenal",
+    repositories: "https://github.com/Estenal/portfolio",
     linkedin: "https://linkedin.com/in/estenal",
     email: "mailto:dev.estenal@gmail.com"
 }
