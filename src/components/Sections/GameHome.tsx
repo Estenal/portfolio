@@ -146,7 +146,7 @@ export default function GameHome({
       <div className="relative w-full h-full flex flex-row items-center pt-10 px-10 gap-10 z-20 portrait:px-4 portrait:pt-6 portrait:gap-2">
 
         {/* KHỐI TRÁI: Three.js */}
-        <div className="w-[55%] h-full relative select-all cursor-grab portrait:w-[55%]">
+        <div className="w-[55%] h-full relative select-all cursor-grab portrait:w-[50%]">
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="w-[85%] aspect-square border-[20px] border-white/20 rounded-full animate-[spin_40s_linear_infinite] shadow-[0_0_60px_rgba(255,255,255,0.2)]" />
             <div className="absolute w-[70%] aspect-square border-[8px] border-white/10 rounded-full animate-[spin_25s_linear_infinite_reverse]" />
@@ -167,9 +167,10 @@ export default function GameHome({
 
         {/* KHỐI PHẢI: Menu chính */}
         {/* TỐI ƯU: Đảm bảo Menu giữ nguyên form vuông vức tuyệt đẹp, chỉ scale nhỏ lại 75% cho vừa khung xoay ngang của điện thoại */}
-        <div className="fade-in-up w-[45%] scale-110 h-full flex flex-col justify-center items-center pr-10 pb-0 select-none portrait:scale-[0.75] portrait:origin-right portrait:pr-4">
+        <div className="fade-in-up w-[45%] scale-110 h-full flex flex-col justify-center items-center pr-10 pb-0 select-none portrait:scale-[0.75] 
+        portrait:origin-right portrait:pr-0">
 
-          <div className="relative w-full max-w-sm">
+          <div className="relative w-full max-w-sm portrait:w-[90dvw]">
             {/* Decor ẩn trên mobile để giảm tải DOM */}
             <div className="absolute -top-1 -left-6 w-32 h-8 bg-amber-100/60 border-2 border-dashed border-amber-300/80 rounded-sm rotate-[-30deg] z-30 shadow-sm pointer-events-none flex items-center justify-center portrait:hidden">
               <div className="w-full h-[1px] bg-amber-200/40" />
@@ -200,15 +201,18 @@ export default function GameHome({
                       handleOpenProjects();
                       playSoundEffect();
                     }}
-                    className="group relative -rotate-1 mt-2 w-full h-24 px-10 bg-[#4ADE80] border-[5px] border-[#22c55e] shadow-[0_6px_0_0_#16a34a] hover:shadow-[0_3px_0_0_#16a34a] hover:translate-y-0.5 active:translate-y-1 active:shadow-none transition-all rounded-tl-4xl rounded-tr-3xl rounded-bl-2xl rounded-br-4xl overflow-hidden"
+                    className="group relative -rotate-1 mt-2 w-full h-24 px-10 bg-[#4ADE80] border-[5px] border-[#22c55e] shadow-[0_6px_0_0_#16a34a] hover:shadow-[0_3px_0_0_#16a34a] hover:translate-y-0.5 active:translate-y-1 active:shadow-none transition-all rounded-tl-4xl rounded-tr-3xl rounded-bl-2xl rounded-br-4xl overflow-hidden
+                    portrait:px-8"
                   >
                     <div className="absolute top-0 left-0 w-full h-1/2 bg-white/20 pointer-events-none" />
-                    <div className="flex items-center justify-between gap-6 relative z-10">
+                    <div className="flex items-center justify-between gap-6 relative z-10
+                    portrait:gap-3">
                       <div className="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center text-[#16a34a] text-3xl shadow-inner group-hover:scale-105 transition-transform">
                         <FontAwesomeIcon icon={faPlay} className="ml-1" />
                       </div>
                       <div className="text-left">
-                        <h2 className="text-4xl font-black text-white italic tracking-tighter drop-shadow-[1px_2px_0_rgba(22,163,74,0.3)]">DỰ ÁN</h2>
+                        <h2 className="text-4xl font-black text-white italic tracking-tighter drop-shadow-[1px_2px_0_rgba(22,163,74,0.3)]
+                        portrait:text-3xl portrait:tracking-wide">DỰ ÁN</h2>
                         <p className="text-emerald-800/60 font-black text-[10px] tracking-wider portrait:hidden">START MISSION</p>
                       </div>
                     </div>

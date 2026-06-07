@@ -13,9 +13,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { IconButton } from "../../common/IconButton";
 import { playPopSound } from "../../common/playUiSound";
+import { LinkResources } from "../../../models/Portfolio";
 import RedirectPopup from "./Forms/RedirectPopup";
 
-const DEFAULT_SOURCE_URL = "https://github.com/Estenal";
+const DEFAULT_SOURCE_URL = LinkResources.repositories;
 
 export type OverlayMenuProps = {
   onGoHome?: () => void;
@@ -57,7 +58,7 @@ export const OverlayMenu = ({
             initial={{ opacity: 0, x: -50, scale: 0.8 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: -50, scale: 0.8 }}
-            className="flex items-end gap-3"
+            className="flex items-end gap-3 ml-4 portrait:ml-0"
           >
             <IconButton
               icon={faLanguage}

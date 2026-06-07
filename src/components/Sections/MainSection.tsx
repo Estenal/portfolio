@@ -9,6 +9,7 @@ import { SocialLink } from '../common/SocialLink';
 import RedirectPopup from './Layout/Forms/RedirectPopup';
 import { IconButton } from '../common/IconButton';
 import MainBackground from './Layout/MainBackground';
+import { LinkResources } from '../../models/Portfolio';
 
 const subtitles = ["Fullstack Developer", "2D Designer", "Server Admin"];
 
@@ -134,25 +135,25 @@ export const MainSection = ({ onNextPage, onPopupStateChange }: MainSectionProps
 
             <div className="flex gap-3 z-30 pointer-events-auto">
               <SocialLink
-                href="https://github.com/Estenal"
+                href={LinkResources.github}
                 icon={faGithub}
                 color="bg-slate-800"
                 tooltip="GitHub"
-                onClick={(e) => { e.preventDefault(); setRedirectUrl("https://github.com/Estenal"); }}
+                onClick={(e) => { e.preventDefault(); setRedirectUrl(LinkResources.github); }}
               />
               <SocialLink
-                href="https://linkedin.com"
+                href={LinkResources.linkedin}
                 icon={faLinkedin}
                 color="bg-sky-600"
                 tooltip="LinkedIn"
-                onClick={(e) => { e.preventDefault(); setRedirectUrl("https://linkedin.com"); }}
+                onClick={(e) => { e.preventDefault(); setRedirectUrl(LinkResources.linkedin); }}
               />
               <SocialLink
-                href="mailto:dev.estenal@gmail.com"
+                href={LinkResources.email}
                 icon={faEnvelope}
                 color="bg-teal-500"
                 tooltip="Email"
-                onClick={(e) => { e.preventDefault(); setRedirectUrl("mailto:dev.estenal@gmail.com"); }}
+                onClick={(e) => { e.preventDefault(); setRedirectUrl(LinkResources.email); }}
               />
             </div>
           </div>
@@ -196,7 +197,7 @@ export const MainSection = ({ onNextPage, onPopupStateChange }: MainSectionProps
                 color="bg-slate-800"
                 size="sm"
                 motionLift
-                onClick={() => setRedirectUrl("https://github.com/Estenal")}
+                onClick={() => setRedirectUrl(LinkResources.github)}
               />
               <IconButton
                 icon={faLinkedin}
@@ -204,7 +205,7 @@ export const MainSection = ({ onNextPage, onPopupStateChange }: MainSectionProps
                 color="bg-sky-600"
                 size="sm"
                 motionLift
-                onClick={() => setRedirectUrl("https://linkedin.com")}
+                onClick={() => setRedirectUrl(LinkResources.linkedin)}
               />
               <IconButton
                 icon={faEnvelope}
@@ -212,7 +213,7 @@ export const MainSection = ({ onNextPage, onPopupStateChange }: MainSectionProps
                 color="bg-teal-500"
                 size="sm"
                 motionLift
-                onClick={() => setRedirectUrl("mailto:dev.estenal@gmail.com")}
+                onClick={() => setRedirectUrl(LinkResources.email)}
               />
 
             </div>

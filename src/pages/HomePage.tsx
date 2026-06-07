@@ -6,6 +6,7 @@ import OverlayMenu from "../components/Sections/Layout/OverlayMenu";
 import ContactPopup from "../components/Sections/Layout/Forms/PopupContactForm";
 import LanguagePopup from "../components/Sections/Layout/Forms/PopupLanguage";
 import Loader from "../components/Sections/Layout/Loader";
+import { PortfolioInfo, LinkResources } from "../models/Portfolio";
 
 export default function HomePage() {
   const [step, setStep] = useState<number>(0);
@@ -23,6 +24,7 @@ export default function HomePage() {
   //2s loader on initial load
   const [showLoader, setShowLoader] = useState(true);
   useEffect(() => {
+    document.title = `${PortfolioInfo.name} • ${PortfolioInfo.description}`;
     const timer = setTimeout(() => setShowLoader(false), 2500);
     return () => clearTimeout(timer);
   }, []);
@@ -75,7 +77,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-[#7DD3FC]/60 portrait:w-[100dvh] portrait:h-[100dvw] portrait:absolute portrait:top-1/2 portrait:left-1/2 portrait:-translate-x-1/2 portrait:-translate-y-1/2 portrait:-rotate-90">
+    <div className="relative h-screen w-full overflow-hidden bg-[#7DD3FC]/60 portrait:w-[100dvh] portrait:h-[100dvw] portrait:absolute portrait:top-1/2 portrait:left-1/2 portrait:-translate-x-1/2 portrait:-translate-y-1/2 portrait:rotate-90">
 
       {/* ================= BASE ================= */}
       <div className="absolute inset-0 bg-gradient-to-b from-sky-200 via-sky-300 to-sky-400" />
@@ -191,6 +193,7 @@ export default function HomePage() {
         onGoHome={() => { changeStep(0); }}
         onOpenContact={() => { setContactOpen(true); }}
         onOpenLanguage={() => { setLangOpen(true); }}
+        sourceCodeUrl={LinkResources.repositories}
       />
 
       {contactOpen && <ContactPopup onClose={() => setContactOpen(false)} />}

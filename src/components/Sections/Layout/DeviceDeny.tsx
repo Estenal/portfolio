@@ -37,7 +37,7 @@ const DeviceDeny: React.FC<DeviceDenyProps> = ({ open, onClose }) => {
 
   return (
     <div
-      className="fixed inset-0 z-[999] flex items-center justify-center p-3 bg-slate-900/40 backdrop-blur-sm select-none"
+      className="fixed inset-0 z-[999] flex items-center justify-center p-12 bg-slate-900/40 backdrop-blur-sm select-none"
       onMouseDown={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
