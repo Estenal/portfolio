@@ -2,7 +2,7 @@
 
 const PortfolioInfo = {
   name: "Estenal's Portfolio",
-  version: "1.1.1",
+  version: "1.1.2",
   description: "Stylized interactive portfolio with game-inspired UI.",
 };
 

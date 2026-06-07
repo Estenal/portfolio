@@ -34,10 +34,12 @@ export function GameMenuButton({ icon, label, sub, color, borderColor, onClick, 
         </div>
 
         <div className="text-left flex flex-col leading-none">
-          <span className="text-white font-black text-lg italic tracking-tighter drop-shadow-[1px_2px_0_rgba(0,0,0,0.1)] uppercase">
+          <span className="text-white font-black text-lg italic tracking-tighter drop-shadow-[1px_2px_0_rgba(0,0,0,0.1)] uppercase
+          portrait:text-xl portrait:tracking-tight portrait:drop-shadow-[1px_1px_0_rgba(0,0,0,0.1)]">
             {label}
           </span>
-          <span className="text-white/50 font-bold text-[9px] tracking-widest mt-1 uppercase group-hover:text-white/70 transition-colors">
+          <span className="text-white/50 font-bold text-[9px] tracking-widest mt-1 uppercase group-hover:text-white/70 transition-colors
+          portrait:hidden">
             {sub}
           </span>
         </div>

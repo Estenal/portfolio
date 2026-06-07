@@ -202,7 +202,13 @@ export function BandSection() {
   // const { debug } = useControls({ debug: false })
 
   return (
-    <Canvas camera={{ position: [0, 0, 10], fov: 30}} performance={{ min: 1, max: 2 }}>
+    <Canvas
+      style={{ width: '100%', height: '100%' }}
+      camera= {{position: [0, 0, 10], fov: 30 }}
+      
+
+      performance={{ min: 0.5, max: 1 }}
+    >
       {/* Reduced ambient light intensity to save resources */}
       <ambientLight intensity={2} />
       {/* Set debug to false for production to save resources */}

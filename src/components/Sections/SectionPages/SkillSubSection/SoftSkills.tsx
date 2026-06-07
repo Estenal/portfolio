@@ -7,13 +7,13 @@ import { getProficiencyLabel } from '../../../../utils/common';
 const softSkillData = [
   { 
     name: "Teamwork", 
-    percentage: 90, 
+    percentage: 60, 
     icon: faComments, 
     description: "Biết lắng nghe, chủ động phân chia công việc hợp lý và thúc đẩy tinh thần đồng đội vượt qua deadline." 
   },
   { 
     name: "Communication", 
-    percentage: 85, 
+    percentage: 65, 
     icon: faBrain, 
     description: "Truyền đạt ý tưởng kỹ thuật phức tạp một cách đơn giản, dễ hiểu cho cả designer lẫn khách hàng." 
   },

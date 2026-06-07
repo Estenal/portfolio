@@ -23,5 +23,7 @@ export default function App() {
 //     return () => window.removeEventListener('resize', handleResize);
 //   }, []);
 
-  return <HomePage />;
+  return (
+  <HomePage />
+  );
 }

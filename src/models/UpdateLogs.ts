@@ -18,7 +18,19 @@ export interface ExternalService {
 
 export const updateLogsData: UpdateLog[] = [
   {
-    id: "log-xx",
+    id: "log-6",
+    version: "v1.1.2",
+    date: "07/06/2026",
+    title: "Cập nhật và tối ưu giao diện trên Portrait",
+    description: "Mobile Devicee Updateeeee :<",
+    features: [
+      "Hạn chế một vài tính năng tại Portrait UI",
+      "Thêm giao diện đặc thù cho portrait, tối ưu trải nghiệm người dùng trên thiết bị di động",
+	    "Thêm Simple Mode cho người dùng có thiết bị không phù hợp"
+    ],
+  },
+  {
+    id: "log-5",
     version: "v1.1.1",
     date: "01/06/2026",
     title: "Deploy Phiên bản Portfolio đầu tiên trên Vercel",

@@ -30,40 +30,44 @@ export const ChunkyCodeBlock: React.FC<Props> = ({ snippet, emptyText = "// No c
         : 'language-javascript';
 
     return (
-        <div className="bg-slate-900/90 backdrop-blur-md rounded-xl p-4 h-full w-full overflow-y-auto custom-scrollbar relative group flex flex-col hover:shadow-[0_0_15px_rgba(56,189,248,0.3)] transition-shadow duration-300 border-2 border-slate-700/50 hover:border-sky-400/50">
-            {/* Decorative dots */}
-            <div className="absolute top-3 left-3 flex gap-1.5 opacity-50 group-hover:opacity-100 transition-opacity z-10">
-                <div className="w-2.5 h-2.5 rounded-full bg-rose-500 hover:scale-150 transition-transform"></div>
-                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500 hover:scale-150 transition-transform"></div>
-                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 hover:scale-150 transition-transform"></div>
+        <div className="bg-slate-900/90 backdrop-blur-md rounded-xl portrait:rounded-lg p-4 portrait:p-2.5 h-full w-full overflow-y-auto custom-scrollbar relative group flex flex-col hover:shadow-[0_0_15px_rgba(56,189,248,0.3)] transition-shadow duration-300 border-2 portrait:border-[1.5px] border-slate-700/50 hover:border-sky-400/50">
+            
+            {/* Decorative dots (Thu nhỏ nút điều khiển Mac OS) */}
+            <div className="absolute top-3 left-3 portrait:top-2 portrait:left-2 flex gap-1.5 portrait:gap-1 opacity-50 group-hover:opacity-100 transition-opacity z-10">
+                <div className="w-2.5 h-2.5 portrait:w-1.5 portrait:h-1.5 rounded-full bg-rose-500 hover:scale-150 transition-transform"></div>
+                <div className="w-2.5 h-2.5 portrait:w-1.5 portrait:h-1.5 rounded-full bg-yellow-500 hover:scale-150 transition-transform"></div>
+                <div className="w-2.5 h-2.5 portrait:w-1.5 portrait:h-1.5 rounded-full bg-emerald-500 hover:scale-150 transition-transform"></div>
             </div>
             
-            <div className="absolute top-2 right-2 bg-sky-500/20 text-sky-300 text-[10px] px-2 py-0.5 rounded font-black uppercase tracking-wider z-10 group-hover:bg-sky-500 group-hover:text-slate-900 transition-colors duration-300">
+            {/* Language Badge */}
+            <div className="absolute top-2 right-2 portrait:top-1.5 portrait:right-1.5 bg-sky-500/20 text-sky-300 text-[10px] portrait:text-[7px] px-2 portrait:px-1.5 py-0.5 rounded portrait:rounded-sm font-black uppercase tracking-wider z-10 group-hover:bg-sky-500 group-hover:text-slate-900 transition-colors duration-300">
                 {snippet ? snippet.language : 'CODE'}
             </div>
             
+            {/* Headers */}
             {snippet?.name && (
-                <div className="mt-4 text-sky-400 font-bold mb-1 text-sm mr-12 truncate group-hover:text-emerald-400 transition-colors">
+                <div className="mt-4 portrait:mt-1.5 text-sky-400 font-bold mb-1 portrait:mb-0.5 text-sm portrait:text-[10px] mr-12 truncate group-hover:text-emerald-400 transition-colors">
                     {snippet.name}
                 </div>
             )}
             {snippet?.specialty && (
-                <div className="text-purple-400/70 text-[10px] mb-2 font-medium uppercase tracking-widest flex items-center gap-2">
-                    <span className="w-1 h-1 bg-purple-500 rounded-full animate-pulse"></span>
+                <div className="text-purple-400/70 text-[10px] portrait:text-[7px] mb-2 portrait:mb-1 font-medium uppercase tracking-widest flex items-center gap-2 portrait:gap-1">
+                    <span className="w-1 h-1 portrait:w-0.5 portrait:h-0.5 bg-purple-500 rounded-full animate-pulse"></span>
                     {snippet.specialty}
                 </div>
             )}
-            <div className="flex-1 mt-2 relative min-w-0">
+
+            <div className="flex-1 mt-2 portrait:mt-1 relative min-w-0">
                 {/* Random decorative hover element */}
-                <div className="absolute -left-2 top-1/2 w-1 h-0 bg-sky-400 group-hover:h-3/4 group-hover:-translate-y-1/2 transition-all duration-500 rounded-full opacity-0 group-hover:opacity-100 z-10"></div>
+                <div className="absolute -left-2 portrait:-left-1 top-1/2 w-1 portrait:w-0.5 h-0 bg-sky-400 group-hover:h-3/4 group-hover:-translate-y-1/2 transition-all duration-500 rounded-full opacity-0 group-hover:opacity-100 z-10"></div>
                 
                 {snippet?.code ? (
-                    /* SỬA TẠI ĐÂY: Thêm custom-scrollbar, overflow-x-auto và đổi wrap */
-                    <pre className={`text-[8px] font-mono whitespace-pre overflow-x-auto custom-scrollbar leading-relaxed !bg-transparent !p-0 !m-0 pb-2 ${languageClass}`}>
+                    /* SỬA TẠI ĐÂY: Thu nhỏ font-size và line-height cho chế độ xoay dọc màn hình */
+                    <pre className={`text-[8px] portrait:text-[7px] font-mono whitespace-pre overflow-x-auto custom-scrollbar leading-relaxed portrait:leading-normal !bg-transparent !p-0 !m-0 pb-2 portrait:pb-1 ${languageClass}`}>
                         <code className={languageClass}>{snippet.code.trim()}</code>
                     </pre>
                 ) : (
-                    <div className="flex items-center justify-center h-full text-slate-500 font-mono italic text-sm group-hover:animate-bounce">
+                    <div className="flex items-center justify-center h-full text-slate-500 font-mono italic text-sm portrait:text-[10px] group-hover:animate-bounce">
                         {emptyText}
                     </div>
                 )}

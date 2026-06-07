@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRocket, faStar, faCircleNotch, faCloud } from '@fortawesome/free-solid-svg-icons';
+import { PortfolioInfo } from '../../../models/portfolio';
 
 export default function Loader() {
   return (
@@ -94,7 +95,7 @@ export default function Loader() {
 
         <div className="bg-slate-900 px-3 py-1 rounded-lg border-2 border-slate-700 shadow-sm">
           <p className="text-[8px] font-black text-slate-400 uppercase tracking-[0.4em] italic">
-            Estenal's Portfolio Version 1.1.1
+            Estenal's Portfolio v{PortfolioInfo.version}
           </p>
         </div>
       </div>

@@ -50,14 +50,14 @@ export const OverlayMenu = ({
 
   return (
     <>
-    <div className="fixed bottom-8 left-8 z-[100] flex items-end select-none flex-row-reverse">
+    <div className="fixed bottom-8 left-8 z-[100] flex select-none flex-row-reverse portrait:scale-80 portrait:left-0">
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, x: -50, scale: 0.8 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: -50, scale: 0.8 }}
-            className="flex items-end gap-3 ml-4"
+            className="flex items-end gap-3"
           >
             <IconButton
               icon={faLanguage}
@@ -66,6 +66,7 @@ export const OverlayMenu = ({
               size="sm"
               motionLift
               onClick={() => onOpenLanguage?.()}
+              className="portrait:hidden"
             />
             <IconButton
               icon={isDarkMode ? faSun : faMoon}
@@ -75,6 +76,7 @@ export const OverlayMenu = ({
               motionLift
               playSoundOnClick
               onClick={() => setIsDarkMode(!isDarkMode)}
+              className="portrait:hidden"
             />
             <IconButton
               icon={faCodeBranch}
@@ -126,7 +128,8 @@ export const OverlayMenu = ({
           <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
         </motion.div>
 
-        <div className="absolute -top-2 -right-2 bg-slate-900 text-white text-[8px] px-1.5 py-0.5 rounded-md border border-white font-black shadow-sm">
+        <div className="absolute -top-2 -right-2 bg-slate-900 text-white text-[8px] px-1.5 py-0.5 rounded-md border border-white font-black shadow-sm 
+        portrait:hidden">
           TAB
         </div>
       </motion.button>

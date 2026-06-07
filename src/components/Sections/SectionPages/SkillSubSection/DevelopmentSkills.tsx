@@ -41,18 +41,17 @@ const DevSkills: React.FC = () => {
 
   const renderVerticalProgressBar = (
     item: SkillProgressBar, isActive: boolean, onClick: () => void,
-    // colorClass tham số này không cần dùng nữa vì đã dùng màu cam cố định
   ) => (
     <div
-      className="flex flex-col items-center gap-2 cursor-pointer flex-shrink-0 w-20 relative group/bar pt-6" // Thêm pt-6 để chừa chỗ cho tooltip
+      className="flex flex-col items-center gap-2 cursor-pointer flex-shrink-0 w-20 relative group/bar pt-6 portrait:pt-2" 
       onClick={onClick}
     >
-      {/* Custom Tooltip màu Cam */}
-      <div className="absolute top-8 left-2/3 rotate-85 -translate-x-1/2 bg-orange-600 text-white text-xs font-black px-2 py-1 rounded border-2 border-slate-950 pointer-events-none opacity-0 scale-75 group-hover/bar:opacity-100 group-hover/bar:scale-100 transition-all duration-150 z-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)] whitespace-nowrap">
+      {/* Custom Tooltip */}
+      <div className="absolute top-8 portrait:top-6 left-2/3 rotate-85 -translate-x-1/2 bg-orange-600 text-white text-xs font-black px-2 py-1 rounded border-2 border-slate-950 pointer-events-none opacity-0 scale-75 group-hover/bar:opacity-100 group-hover/bar:scale-100 transition-all duration-150 z-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)] whitespace-nowrap">
         {getProficiencyLabel(item.percentage)}
       </div>
 
-      {/* Cột thước đo màu Cam: Hover nghiêng nhẹ trôi nổi & Bo tròn & Vạch chia */}
+      {/* Cột thước đo: Giữ nguyên h-32 để không bị lùn */}
       <div className={`h-32 w-7 bg-slate-100 border-2 border-slate-950 rounded-full relative overflow-hidden transition-all duration-200 ease-out
         ${isActive ? 'scale-105 bg-amber-50 shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] -rotate-2 -translate-y-1' : 'hover:-translate-y-1 hover:rotate-3 hover:shadow-[3px_3px_0px_0px_rgba(15,23,42,1)]'}`}
       >
@@ -62,7 +61,6 @@ const DevSkills: React.FC = () => {
         >
           {isActive && <div className="absolute inset-0 bg-white/30 animate-pulse rounded-full" />}
         </div>
-        {/* Vạch chia thước đo màu đen đậm */}
         <div className="absolute inset-0 flex flex-col justify-between py-1 px-0.5 pointer-events-none">
           {[...Array(5)].map((_, i) => (
             <div key={i} className="w-full h-px bg-slate-950/70 border-b border-slate-950" />
@@ -95,112 +93,58 @@ const DevSkills: React.FC = () => {
   );
 
   return (
-    <section className="p-6 flex flex-col w-full bg-sky-50 text-slate-900 font-sans gap-8 pb-4">
+    // Chỉ giảm nhẹ padding bao ngoài
+    <section className="p-6 portrait:p-4 flex flex-col w-full bg-sky-50 text-slate-900 font-sans gap-8 portrait:gap-6 pb-4">
 
       {/* KHỐI 1 & 2: DROPDOWN & OVERVIEW */}
       <div className="space-y-4 pb-6 border-b-4 border-dashed border-slate-300">
-{/* Dropdown Menu */}
-<div className="relative w-fit min-w-[260px]">
-  <select
-    className="
-      w-full
-      appearance-none
-      bg-gradient-to-b from-orange-400 to-orange-500
-      text-white
-      font-black
-      italic
-      uppercase
-      tracking-wider
-      text-xl
-      border-[3px]
-      border-slate-950
-      rounded-xl
-      px-4
-      py-3
-      pr-12
-      cursor-pointer
-      outline-none
+        <div className="relative w-fit min-w-[260px] portrait:min-w-full">
+          <select
+            className="w-full appearance-none bg-gradient-to-b from-orange-400 to-orange-500 text-white font-black italic uppercase tracking-wider text-xl portrait:text-lg border-[3px] border-slate-950 rounded-xl px-4 py-3 pr-12 cursor-pointer outline-none shadow-[4px_4px_0px_0px_rgba(15,23,42,1)] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] transition-all duration-150"
+            onChange={handleCatChange}
+            value={catIdx}
+          >
+            {skillCategories.map((c, i) => (
+              <option key={i} value={i} className="bg-slate-900 text-orange-200 font-black text-base">
+                {c.name}
+              </option>
+            ))}
+          </select>
+          <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+            <FontAwesomeIcon icon={faCaretDown} className="text-2xl text-white drop-shadow-[2px_2px_0px_rgba(15,23,42,1)]" />
+          </div>
+        </div>
 
-      shadow-[4px_4px_0px_0px_rgba(15,23,42,1)]
-
-      hover:translate-y-[1px]
-      hover:shadow-[2px_2px_0px_0px_rgba(15,23,42,1)]
-
-      transition-all
-      duration-150
-    "
-    onChange={handleCatChange}
-    value={catIdx}
-  >
-    {skillCategories.map((c, i) => (
-      <option
-        key={i}
-        value={i}
-        className="
-          bg-slate-900
-          text-orange-200
-          font-black
-          text-base
-        "
-      >
-        {c.name}
-      </option>
-    ))}
-  </select>
-
-  {/* Arrow */}
-  <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-    <FontAwesomeIcon
-      icon={faCaretDown}
-      className="text-2xl text-white drop-shadow-[2px_2px_0px_rgba(15,23,42,1)]"
-    />
-  </div>
-</div>
-
-        {/* Tiêu đề Overview Cam */}
         <div className="flex items-center justify-end gap-3">
-          {/* <h3 className="text-sm font-black italic uppercase tracking-wider text-white bg-orange-500 border-2 border-slate-950 px-3 py-1 rounded-md shadow-[3px_3px_0px_0px_rgba(15,23,42,1)] flex items-center gap-2">
-            <FontAwesomeIcon icon={faWrench} />
-            {category.overview.name}
-          </h3> */}
-          
-          <span className="text-xl absolute mb-5 -rotate-3 font-black italic text-orange-600 bg-amber-100/50 border-2 border-slate-950 px-2 py-0.5 rounded-md hover:scale-105">
+          <span className="text-xl portrait:text-base absolute mb-5 portrait:mb-4 -rotate-3 font-black italic text-orange-600 bg-amber-100/50 border-2 border-slate-950 px-2 py-0.5 rounded-md hover:scale-105">
             {getProficiencyLabel(category.overview.percentage)}
           </span>
         </div>
 
-        {/* Progress Bar Ngang Cam */}
-        <div className="w-full bg-slate-100 border-2 border-slate-950 rounded-md h-5 relative overflow-hidden shadow-[2px_2px_0px_0px_rgba(15,23,42,1)]">
-          <div
-            className="h-full bg-orange-500 transition-all duration-700"
-            style={{ width: `${category.overview.percentage}%` }}
-          />
+        <div className="w-full bg-slate-100 border-2 border-slate-950 rounded-md h-5 portrait:h-4 relative overflow-hidden shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] mt-2">
+          <div className="h-full bg-orange-500 transition-all duration-700" style={{ width: `${category.overview.percentage}%` }} />
         </div>
 
         <div className="space-y-3 pl-1">
           {category.overviewDescription.map((desc, i) => (
-            <p key={i} className="text-sm font-bold text-slate-700 leading-relaxed relative pl-4 before:content-['➢'] before:absolute before:left-0 before:text-orange-500">
+            <p key={i} className="text-sm portrait:text-xs font-bold text-slate-700 leading-relaxed relative pl-4 before:content-['➢'] before:absolute before:left-0 before:text-orange-500">
               {desc}
             </p>
           ))}
         </div>
       </div>
 
-      {/* KHỐI 3: TOOLS (Đã chuyển sang màu Cam & Thước đo) */}
+      {/* KHỐI 3: TOOLS */}
       {category.toolProficiency && category.toolProficiency.length > 0 && (
         <div className="space-y-4 pb-6 border-b-4 border-dashed border-slate-300">
-          {/* Tag tiêu đề Cam */}
           <h4 className="text-xs font-black italic uppercase tracking-wider text-white bg-orange-500 border-2 border-slate-950 w-fit px-3 py-1 rounded-md shadow-[3px_3px_0px_0px_rgba(15,23,42,1)] flex items-center gap-1.5">
             <span className="w-2 h-2 bg-white rounded-sm" />
             Tools Inventory
           </h4>
 
-          {/* List thước đo - Đã giảm chiều cao */}
+          {/* Khu vực vuốt ngang thước đo, không bóp nhỏ w-h nữa */}
           <div className="flex gap-4 overflow-x-auto no-scrollbar pb-1">
-            {category.toolProficiency.map((tool, i) =>
-              // Dùng màu cam cố định bên trong hàm render
-              renderVerticalProgressBar(tool, activeToolIdx === i, () => handleToolClick(i),)
-            )}
+            {category.toolProficiency.map((tool, i) => renderVerticalProgressBar(tool, activeToolIdx === i, () => handleToolClick(i)) )}
           </div>
 
           {activeTool && (
@@ -210,6 +154,7 @@ const DevSkills: React.FC = () => {
                 initial={{ opacity: 0, y: 4 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -4 }}
+                // Giữ grid-cols-1 để điện thoại (dù xoay ngang) tự đẩy code block xuống dưới text
                 className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-2"
               >
                 <div className="lg:col-span-1 flex flex-col justify-start pl-1">
@@ -220,7 +165,7 @@ const DevSkills: React.FC = () => {
                     {activeTool.description}
                   </p>
                 </div>
-                <div className="lg:col-span-2 h-full max-h-[250px]">
+                <div className="lg:col-span-2 h-full max-h-[300px]">
                   <ChunkyCodeBlock snippet={activeTool.codeSnippet} emptyText="// Không có gì để hiển thị :>" />
                 </div>
               </motion.div>
@@ -232,16 +177,13 @@ const DevSkills: React.FC = () => {
       {/* KHỐI 4: PLATFORMS */}
       {category.platformProficiency && category.platformProficiency.length > 0 && (
         <div className="space-y-4 pb-6 border-b-4 border-dashed border-slate-300">
-          {/* Tag tiêu đề Cam */}
           <h4 className="text-xs font-black italic uppercase tracking-wider text-white bg-orange-500 border-2 border-slate-950 w-fit px-3 py-1 rounded-md shadow-[3px_3px_0px_0px_rgba(15,23,42,1)] flex items-center gap-1.5">
             <span className="w-2 h-2 bg-white rounded-sm" />
             Environment & Platforms
           </h4>
 
           <div className="flex gap-4 overflow-x-auto no-scrollbar pb-1">
-            {category.platformProficiency.map((plat, i) =>
-              renderVerticalProgressBar(plat, activePlatformIdx === i, () => handlePlatformClick(i),)
-            )}
+            {category.platformProficiency.map((plat, i) => renderVerticalProgressBar(plat, activePlatformIdx === i, () => handlePlatformClick(i)) )}
           </div>
 
           {activePlatform && (
@@ -254,7 +196,6 @@ const DevSkills: React.FC = () => {
                 className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-2 min-h-[200px]"
               >
                 <div className="lg:col-span-1 flex flex-col justify-start pl-1">
-                  {/* Tiêu đề platform Cam */}
                   <h5 className="text-base font-black text-orange-600 mb-1.5 uppercase italic tracking-tight flex items-center gap-1.5">
                     <FontAwesomeIcon icon={faTerminal} className="text-xs" />
                     {activePlatform.name}
@@ -263,7 +204,7 @@ const DevSkills: React.FC = () => {
                     {activePlatform.description}
                   </p>
                 </div>
-                <div className="lg:col-span-2 h-full max-h-[250px]">
+                <div className="lg:col-span-2 h-full max-h-[300px]">
                   <ChunkyCodeBlock snippet={activePlatform.codeSnippet} emptyText="// Select a platform" />
                 </div>
               </motion.div>
