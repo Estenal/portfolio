@@ -15,16 +15,17 @@ const RedirectPopup: React.FC<RedirectPopupProps> = ({ targetUrl, onClose }) => 
     callback();
   };
 
-  //Debug window.open có thể bị chặn bởi trình duyệt nếu không được kích hoạt bởi một sự kiện người dùng (như click). Đảm bảo rằng handleConfirm được gọi trong ngữ cảnh của một sự kiện người dùng để tránh bị chặn.
-  const handleConfirm = () => {
-    handleAction(() => {
-      const newWindow = window.open(targetUrl, "_blank");
-      if (newWindow) {
-        newWindow.opener = null; // đảm bảo không có tham chiếu ngược
-      }
-      onClose();
-    });
-  };
+  //gán trực tiếp vào button đê tránh bị chặn bởi trình duyệt
+  // //Debug window.open có thể bị chặn bởi trình duyệt nếu không được kích hoạt bởi một sự kiện người dùng (như click). Đảm bảo rằng handleConfirm được gọi trong ngữ cảnh của một sự kiện người dùng để tránh bị chặn.
+  // const handleConfirm = () => {
+  //   handleAction(() => {
+  //     const newWindow = window.open(targetUrl, "_blank");
+  //     if (newWindow) {
+  //       newWindow.opener = null; // đảm bảo không có tham chiếu ngược
+  //     }
+  //     onClose();
+  //   });
+  // };
 
 
   useEffect(() => {
@@ -130,7 +131,7 @@ const RedirectPopup: React.FC<RedirectPopupProps> = ({ targetUrl, onClose }) => 
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            onClick={handleConfirm}
+            onClick={() => handleAction(() => window.open(targetUrl, "_blank"))}
             className="flex-1 py-3 px-4 portrait:py-2 portrait:px-3 bg-emerald-400 hover:bg-emerald-300 border-[3px] portrait:border-2 border-slate-900 rounded-xl portrait:rounded-lg shadow-[4px_4px_0_0_rgba(15,23,42,1)] portrait:shadow-[2px_2px_0_0_rgba(15,23,42,1)] flex items-center justify-center gap-2 portrait:gap-1.5 text-slate-900 font-black portrait:text-[11px] italic uppercase active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all"
           >
             <FontAwesomeIcon icon={faCheck} />

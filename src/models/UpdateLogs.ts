@@ -25,7 +25,7 @@ export const updateLogsData: UpdateLog[] = [
     description: "Giảm kích thước model máy bay, giảm thời gian load và các vấn đề liên quan",
     features: [
       "Giảm 53MB (92%) kích thước model máy bay, giảm thời gian load và cải thiện hiệu suất",
-      "Sửa lỗi Liên Kết Ngoài do window.open",
+      "Sửa lỗi Liên Kết do window.open gây ra thành gọi trực tiếp trong OnClick()",
       "Sửa một vài đường dẫn hình ảnh bị lỗi",
       "Cập nhật và chỉnh sửa thông tin"
     ],
