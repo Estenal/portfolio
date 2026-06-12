@@ -128,15 +128,18 @@ const RedirectPopup: React.FC<RedirectPopupProps> = ({ targetUrl, onClose }) => 
           </motion.button>
 
           {/* Nút Tiếp tục */}
-          <motion.button
+          <motion.a
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => handleAction(() => window.open(targetUrl, "_blank"))}
+            href={targetUrl}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => handleAction(onClose)}
             className="flex-1 py-3 px-4 portrait:py-2 portrait:px-3 bg-emerald-400 hover:bg-emerald-300 border-[3px] portrait:border-2 border-slate-900 rounded-xl portrait:rounded-lg shadow-[4px_4px_0_0_rgba(15,23,42,1)] portrait:shadow-[2px_2px_0_0_rgba(15,23,42,1)] flex items-center justify-center gap-2 portrait:gap-1.5 text-slate-900 font-black portrait:text-[11px] italic uppercase active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all"
           >
             <FontAwesomeIcon icon={faCheck} />
             Tiếp Tục
-          </motion.button>
+          </motion.a>
         </div>
 
       </motion.div>
