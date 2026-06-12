@@ -15,12 +15,17 @@ const RedirectPopup: React.FC<RedirectPopupProps> = ({ targetUrl, onClose }) => 
     callback();
   };
 
+  //Debug window.open có thể bị chặn bởi trình duyệt nếu không được kích hoạt bởi một sự kiện người dùng (như click). Đảm bảo rằng handleConfirm được gọi trong ngữ cảnh của một sự kiện người dùng để tránh bị chặn.
   const handleConfirm = () => {
     handleAction(() => {
-      window.open(targetUrl, "_blank", "noopener,noreferrer");
+      const newWindow = window.open(targetUrl, "_blank");
+      if (newWindow) {
+        newWindow.opener = null; // đảm bảo không có tham chiếu ngược
+      }
       onClose();
     });
   };
+
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

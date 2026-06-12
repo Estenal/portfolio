@@ -20,12 +20,14 @@ export const updateLogsData: UpdateLog[] = [
   {
     id: "log-7",
     version: "v1.1.3",
-    date: "07/06/2026",
-    title: "Tối ưu hóa Model 3D và UI",
-    description: "Giảm kích thước model máy bay, giảm thời gian load",
+    date: "12/06/2026",
+    title: "Performance Update: Tối ưu UX",
+    description: "Giảm kích thước model máy bay, giảm thời gian load và các vấn đề liên quan",
     features: [
-      "Giảm 90% kích thước file model máy bay, giảm thời gian load và cải thiện hiệu suất",
-      "Sửa lỗi và nâng cấp giao diện"
+      "Giảm 53MB (92%) kích thước model máy bay, giảm thời gian load và cải thiện hiệu suất",
+      "Sửa lỗi Liên Kết Ngoài do window.open",
+      "Sửa một vài đường dẫn hình ảnh bị lỗi",
+      "Cập nhật và chỉnh sửa thông tin"
     ],
   },
   {

@@ -6,7 +6,7 @@ import OverlayMenu from "../components/Sections/Layout/OverlayMenu";
 import ContactPopup from "../components/Sections/Layout/Forms/PopupContactForm";
 import LanguagePopup from "../components/Sections/Layout/Forms/PopupLanguage";
 import Loader from "../components/Sections/Layout/Loader";
-import { PortfolioInfo, LinkResources } from "../models/Portfolio";
+import { LinkResources } from "../models/Portfolio";
 
 export default function HomePage() {
   const [step, setStep] = useState<number>(0);
@@ -24,7 +24,6 @@ export default function HomePage() {
   //2s loader on initial load
   const [showLoader, setShowLoader] = useState(true);
   useEffect(() => {
-    document.title = `${PortfolioInfo.name} • ${PortfolioInfo.description}`;
     const timer = setTimeout(() => setShowLoader(false), 2500);
     return () => clearTimeout(timer);
   }, []);

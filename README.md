@@ -70,8 +70,7 @@ Dự án đã trải qua nhiều giai đoạn phát triển và thay đổi ý t
 ## Contact
 
 Nếu bạn có bất kỳ câu hỏi nào hoặc muốn kết nối, đừng ngần ngại liên hệ:
-- **Email**: [Your Email]
-- **LinkedIn**: [Your LinkedIn Profile]
-- **GitHub**: [Your GitHub Profile]
+- **Email**: [dev.estenal@gmail.com | trido285@gmail.com]
+- **LinkedIn**: [-]
 
 Cảm ơn bạn đã ghé thăm!
