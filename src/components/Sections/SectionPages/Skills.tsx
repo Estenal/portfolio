@@ -15,7 +15,7 @@ interface CardItem {
 }
 
 const data: CardItem[] = [
-  { id: 1, title: "Development Skills", subtitle: "Coding & Architecting" },
+  { id: 1, title: "Development Skills", subtitle: "Coding & Database Architecture" },
   { id: 2, title: "Graphic Design Skills", subtitle: "2D/3D & UI/UX" },
   { id: 3, title: "Server Management", subtitle: "DevOps & Deployment" },
   { id: 4, title: "Soft Skills", subtitle: "Communication & Teamwork" },

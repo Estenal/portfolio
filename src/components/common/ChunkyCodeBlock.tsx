@@ -51,7 +51,8 @@ export const ChunkyCodeBlock: React.FC<Props> = ({ snippet, emptyText = "// No c
                 </div>
             )}
             {snippet?.specialty && (
-                <div className="text-purple-400/70 text-[10px] portrait:text-[7px] mb-2 portrait:mb-1 font-medium uppercase tracking-widest flex items-center gap-2 portrait:gap-1">
+                <div className="text-purple-400/70 text-[10px] portrait:text-[7px] mb-2 font-medium uppercase tracking-widest flex items-center gap-2 portrait:gap-1 
+                portrait:hidden">
                     <span className="w-1 h-1 portrait:w-0.5 portrait:h-0.5 bg-purple-500 rounded-full animate-pulse"></span>
                     {snippet.specialty}
                 </div>

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRocket, faStar, faCircleNotch, faCloud } from '@fortawesome/free-solid-svg-icons';
-import { PortfolioInfo } from '../../../models/Portfolio';
+import { PortfolioInfo } from '../../../models/Portfolio'; //
 
 export default function Loader() {
   return (
@@ -94,11 +94,11 @@ export default function Loader() {
         </div>
 
         <div className="bg-slate-900 px-4 py-3 rounded-2xl border-2 border-slate-700 shadow-sm text-center">
-          <p className="text-[8px] font-black text-slate-400 uppercase tracking-[0.4em] italic">
+          <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.4em] italic">
             {PortfolioInfo.name} {PortfolioInfo.version}
           </p>
           <p className="text-[8px] text-slate-300 uppercase tracking-[0.35em] italic mt-1">
-            {PortfolioInfo.description}
+            Quá trình này có thể mất vài giây, vui lòng chờ trong giây lát...
           </p>
         </div>
       </div>

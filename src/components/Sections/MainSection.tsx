@@ -171,11 +171,7 @@ export const MainSection = ({ onNextPage, onPopupStateChange }: MainSectionProps
           <span className="text-slate-900 font-black text-[10px] mt-2 tracking-widest uppercase"> - Slide Down</span>
         </motion.div>
 
-        {redirectUrl && (
-          <div className="fixed inset-0 z-[200]">
-            <RedirectPopup targetUrl={redirectUrl} onClose={() => setRedirectUrl(null)} />
-          </div>
-        )}
+
       </div>
 
 
@@ -186,7 +182,7 @@ export const MainSection = ({ onNextPage, onPopupStateChange }: MainSectionProps
       <div className="portrait:absolute portrait:inset-0 portrait:block fade-in-down px-12 hidden pb-12 pt-2 relative w-full h-full select-none flex-col">
 
         {/* TOP OVERLAY BAR (Tối giản, trong suốt) */}
-        <div className="absolute bottom-0 left-0 p-3 w-full h-full flex justify-between items-start z-10">
+        <div className="absolute bottom-0 left-0 p-3 w-full h-full flex justify-between items-start z-300">
           {/*Button GitHub, Contact */}
           <div className="flex flex-col justify-between items-start h-full w-auto">
 
@@ -222,7 +218,7 @@ export const MainSection = ({ onNextPage, onPopupStateChange }: MainSectionProps
             <div className="flex items-center gap-2 text-slate-900 drop-shadow-[0_1px_1px_rgba(255,255,255,0.4)]">
               <span className="flex items-center justify-center w-4 h-4 bg-red-500 text-white font-black text-[10px] rounded-full animate-pulse">!</span>
               <p className="text-xs font-bold tracking-wide">
-                Trải nghiệm hiện tại <span className="text-red-500">bị Hạn Chế</span> trên thiết bị di động.
+                Trải nghiệm hiện tại <span className="text-red-500">bị Hạn Chế</span> trên điện thoại di động.
               </p>
             </div>
           </div>
@@ -236,8 +232,8 @@ export const MainSection = ({ onNextPage, onPopupStateChange }: MainSectionProps
             </button>
 
             {/* Nút Logout, account */}
-            <div className="flex flex-col items-center space-y-2 text-slate-900 hover:text-rose-600 transition-colors">
-              <button className="text-xl font-black tracking-widest text-slate-900 hover:text-rose-600 uppercase transition-colors active:scale-95">
+            <div className="flex flex-col items-center space-y-2 text-slate-900 transition-colors">
+              <button className="text-xl font-black tracking-widest text-slate-900 hover:text-slate-700 uppercase transition-colors active:scale-95">
                 <FontAwesomeIcon icon={faUser} className="mr-1" />
               </button>
               <button className="text-xl font-black tracking-widest text-slate-900 hover:text-rose-600 uppercase transition-colors active:scale-95">
@@ -254,7 +250,7 @@ export const MainSection = ({ onNextPage, onPopupStateChange }: MainSectionProps
           {/* Khối Title lớn */}
           <div className="flex flex-col items-center md:items-start relative font-black tracking-tighter italic uppercase leading-none text-slate-900">
             {/* Chữ ESTENAL với viền và đổ bóng layer */}
-            <h1 className="text-7xl sm:text-6xl md:text-[6.5rem] drop-shadow-[6px_6px_0_rgba(255,255,255,1)] transition-transform hover:scale-105 duration-300">
+            <h1 className="text-7xl sm:text-6xl md:text-[6.5rem] drop-shadow-[6px_6px_0_rgba(255,255,255,1)] transition-transform hover:scale-105 duration-300 pointer-events-none">
               ESTENAL
             </h1>
 
@@ -266,7 +262,7 @@ export const MainSection = ({ onNextPage, onPopupStateChange }: MainSectionProps
         </div>
 
         {/* BOTTOM: GAME ACTIONS (Gọn gàng ở đáy màn hình) */}
-        <div className="w-full h-1/3 flex flex-col space-y-2 items-center justify-center pt-8 relative z-10">
+        <div className="w-full h-1/3 flex flex-col space-y-2 items-center justify-center pt-8 relative z-301">
 
           {/* CHỌN SERVER & PHIÊN BẢN (Dạng text phẳng, cực thoáng) */}
           <div className="flex items-center gap-4 cursor-pointer group text-slate-950">
@@ -281,14 +277,22 @@ export const MainSection = ({ onNextPage, onPopupStateChange }: MainSectionProps
           {/* ENTER THE GAME BUTTON (Nút duy nhất có nền để tạo điểm nhấn) */}
           <button className="px-3 py-2 rounded-full bg-white/20 backdrop-blur-2xl border-[3px] border-sky-300/50 inner-shadow-lg shadow-blue-400 shadow-2xl"
             onClick={() => { handleScrollToGameHome(); playSoundEffect(); }}>
-            Click to start
+            Touch to start
             <FontAwesomeIcon icon={faPlay} className="ml-2" />
           </button>
         </div>
       </div>
 
+      {/* REDIRECT POPUP (Dùng chung cho cả desktop và mobile, chỉ hiển thị khi redirectUrl có giá trị) */}
+      {redirectUrl && (
+        <div className="fixed inset-0 z-[200]">
+          <RedirectPopup targetUrl={redirectUrl} onClose={() => setRedirectUrl(null)} />
+        </div>
+      )}
     </section >
   );
+
 };
+
 
 export default MainSection;
